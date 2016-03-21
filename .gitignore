@@ -1,0 +1,4 @@
+.DS_Store
+.jshintrc
+bower_components
+node_modules
