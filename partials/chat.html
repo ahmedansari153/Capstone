@@ -1,0 +1,9 @@
+<div>
+<header ng-click="submit()">
+    <input type='text' id='messageInput'  placeholder='Type a message...' ng-model="text">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    	<i class="material-icons right">send</i>
+  	</button>
+</header>
+<ul id='messages' class="chat-messages" ng-repeat>{{message}}</ul>
+</div>

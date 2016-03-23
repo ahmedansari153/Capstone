@@ -17,6 +17,8 @@
   ],
   "dependencies": {
     "jquery": "^2.2.2",
-    "Materialize": "materialize#^0.97.5"
+    "Materialize": "materialize#^0.97.5",
+    "angular": "^1.5.2",
+    "angularfire": "^1.1.4"
   }
 }
