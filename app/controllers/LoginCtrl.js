@@ -1,6 +1,6 @@
 "use strict";
 
-BusinessApp.controller("LoginCtrl",
+Business.controller("LoginCtrl",
 [
   "$scope",
   "$location",

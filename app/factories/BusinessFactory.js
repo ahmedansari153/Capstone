@@ -1,6 +1,6 @@
 "use strict"
 
-BusinessApp.factory("Business", ($q, $http) =>
+Business.factory("Business", ($q, $http) =>
   () =>
     $q((resolve, reject) => 
       $http

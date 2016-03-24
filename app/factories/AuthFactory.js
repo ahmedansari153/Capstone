@@ -1,6 +1,6 @@
 "use strict";
 
-BusinessApp.factory("authFactory", function ()  {
+Business.factory("authFactory", function ()  {
   let ref = new Firebase("https://capstoneaa.firebaseio.com");
 
   return {

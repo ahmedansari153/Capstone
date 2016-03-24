@@ -2,7 +2,7 @@
 
 /* exported Business */
 
-let BusinessApp = angular.module("BusinessApp", ["ngRoute", "firebase"])
+let Business = angular.module("BusinessApp", ["ngRoute", "firebase"])
   .constant('firebaseURL', "https://capstoneaa.firebaseio.com");
 
 /*
@@ -24,12 +24,12 @@ let isAuth = (authFactory) => new Promise((resolve, reject) => {
   Set up routes for Business app
  */
 
-BusinessApp.config(["$routeProvider",
+Business.config(["$routeProvider",
   function ($routeProvider) {
     $routeProvider.
 	    when("/", {
 	        templateUrl: "partials/chat.html",
-          // controller: "ChatCtrl"
+          controller: "ChatCtrl",
           resolve: { isAuth }
       }).
       when("/mission", {
@@ -53,7 +53,7 @@ BusinessApp.config(["$routeProvider",
         redirectTo: "/"
      	});
   }]);
-BusinessApp.run([
+Business.run([
   "$location",
 
   ($location) => {

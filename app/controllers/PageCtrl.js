@@ -1,6 +1,6 @@
 "use strict";
 
-BusinessApp.controller("PageCtrl",
+Business.controller("PageCtrl",
 [
   "$scope",
   "$location",
