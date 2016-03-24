@@ -20,16 +20,16 @@ Business.controller("ChatCtrl", [
       messageField.val('');
 	  };
 	 })
-    messageRef.limitToLast(10).on('child_added', function (snapshot) {
+    messageRef.limitToLast(100).on('child_added', function (snapshot) {
     	let data = snapshot.val();
-    	let username = data.name || "anonymous";
+    	let username = data.name || "guest";
     	let message = data.text;
 
     	let messageElement = $("<li>");
     	let nameElement = $("<p class='username'></p>")
+    	console.log("egg");
     	nameElement.text(username);
     	messageElement.text(message).prepend(nameElement);
-
     	messageList.append(messageElement)
   })
   }]);
