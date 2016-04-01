@@ -10,6 +10,8 @@
   	</button>
 </header>
 	<div>
-		<div id='messages' class="chat-messages"  ng-repeat= "text in messageData"><strong>{{text.name}}</strong>: {{text.text}} </div>
+
+		<div id='messages' class="chat-messages"  ng-repeat= "text in messageData"><strong>{{text.name}}</strong>: {{text.text}} <a class="waves-effect waves-light btn" type='text' ng-click="delete(text.id)">Delete</a> <a class="waves-effect waves-light btn" type='text'>Edit</a> </div>
+
 	</div>
 </div>

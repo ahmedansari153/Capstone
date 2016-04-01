@@ -4,8 +4,9 @@ Business.controller("ChatCtrl", [
   "$scope",
   "$location",
   "businessFactory",
+  "$http", 
 
-  function ($scope, $location, businessFactory) {
+  function ($scope, $location, businessFactory, $http) {
 
     $scope.messageData = []
 
@@ -18,22 +19,20 @@ Business.controller("ChatCtrl", [
       console.log("fired");
       let username = nameField.val();
       let message = messageField.val();
-
       messageRef.push({name:username, text:message});
       messageField.val('');
-      businessFactory().then(
-        businessCollection => {
-          Object.keys(businessCollection).forEach(key => {
-            businessCollection[key].id = key;
-            $scope.messageData.push(businessCollection[key]);
-            console.log("businessCollection",businessCollection);
-        });
-      },
-      // Handle reject() from the promise
-      err => console.log(err)
-      )
+      $scope.messageData = [];
+      $scope.get();
     }
-    businessFactory().then(
+    $scope.delete = function(id) {
+      console.log("id", id);
+      let ref = messageRef+id+".json/";
+      $http.delete(ref)
+      .success(function(){
+        location.reload(true);
+      })
+    };
+    $scope.get = function() { businessFactory().then(
       // Handle resolve() from the promise
       businessCollection => {
         Object.keys(businessCollection).forEach(key => {
@@ -44,5 +43,7 @@ Business.controller("ChatCtrl", [
       // Handle reject() from the promise
       err => console.log(err)
     );
-  }  
+  };  
+  $scope.get();
+}
 ]);
