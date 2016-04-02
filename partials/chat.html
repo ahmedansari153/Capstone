@@ -4,12 +4,14 @@
     <label for="nameInput">Username:</label>
     <input type='text' id='nameInput' placeholder='enter a username...'>
   </div>
-    <input type='text' id='messageInput'  placeholder='Type a message...' ng-model="text">
+    <input type='text' id='messageInput'  placeholder='Type a message...'>
     <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="submit()">Submit
     	<i class="material-icons right">send</i>
   	</button>
 </header>
-<body>
-	<ul id='messages' class="chat-messages" ng-repeat= "text in message"></ul>
-</body>
+	<div>
+
+		<div id='messages' class="chat-messages"  ng-repeat= "text in messageData"><strong>{{text.name}}</strong>: {{text.text}} <a class="waves-effect waves-light btn" type='text' ng-click="delete(text.id)">Delete</a> <a class="waves-effect waves-light btn" type='text'>Edit</a> </div>
+
+	</div>
 </div>

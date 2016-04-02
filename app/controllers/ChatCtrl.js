@@ -3,33 +3,47 @@
 Business.controller("ChatCtrl", [
   "$scope",
   "$location",
+  "businessFactory",
+  "$http", 
 
+  function ($scope, $location, businessFactory, $http) {
 
-  function ($scope, $location) {
+    $scope.messageData = []
+
   	let messageRef = new Firebase('https://capstoneaa.firebaseio.com');
   	let messageField = $("#messageInput");
   	let nameField = $('#nameInput');
-    let messageList = $('#messages');
-    	
-    messageField.keypress(function () {
+    // let messageList = $('#messages');
+      
     $scope.submit = function() {
-    	let username = nameField.val();
+      console.log("fired");
+      let username = nameField.val();
       let message = messageField.val();
-
       messageRef.push({name:username, text:message});
       messageField.val('');
-	  };
-	 })
-    messageRef.limitToLast(100).on('child_added', function (snapshot) {
-    	let data = snapshot.val();
-    	let username = data.name || "guest";
-    	let message = data.text;
-
-    	let messageElement = $("<li>");
-    	let nameElement = $("<p class='username'></p>")
-    	console.log("egg");
-    	nameElement.text(username);
-    	messageElement.text(message).prepend(nameElement);
-    	messageList.append(messageElement)
-  })
-  }]);
+      $scope.messageData = [];
+      $scope.get();
+    }
+    $scope.delete = function(id) {
+      console.log("id", id);
+      let ref = messageRef+id+".json/";
+      $http.delete(ref)
+      .success(function(){
+        location.reload(true);
+      })
+    };
+    $scope.get = function() { businessFactory().then(
+      // Handle resolve() from the promise
+      businessCollection => {
+        Object.keys(businessCollection).forEach(key => {
+          businessCollection[key].id = key;
+          $scope.messageData.push(businessCollection[key]);
+        });
+      },
+      // Handle reject() from the promise
+      err => console.log(err)
+    );
+  };  
+  $scope.get();
+}
+]);
