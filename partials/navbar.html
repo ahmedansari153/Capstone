@@ -1,13 +1,24 @@
-<nav>
-    <div class="nav-wrapper teal">
-      <a href="#" class="brand-logo right">Practice</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="#/mission">Our Mission</a></li>
-        <li><a href="#/employee">Employees</a></li>
-        <li><a href="#/chat">Chat</a></li>
-        <li><a href="#/location">Locate Us</a></li>
-        <li><a href="#/logout" ng-if="isAuthenticated()">Logout</a>
-        <li><a href="#/login" ng-if="!isAuthenticated()">Login</a></li>
-      </ul>
-    </div>
-</nav>
+<div class="navbar-fixed">
+  <nav>
+      <div class="nav-wrapper orange" >
+        <a href="#" class="brand-logo right">My Business</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+          <li><a href="#/mission">Our Mission</a></li>
+          <li><a href="#/employee">Employees</a></li>
+          <li><a href="#/chat">Chat</a></li>
+          <li><a href="#/location">Locate Us</a></li>
+          <li><a href="#/logout" ng-if="isAuthenticated()">Logout</a>
+          <li><a href="#/login" ng-if="!isAuthenticated()">Login</a></li>
+        </ul>
+        <ul id="mobile-demo" class="side-nav">
+          <li><a href="#/mission">Our Mission</a></li>
+          <li><a href="#/employee">Employees</a></li>
+          <li><a href="#/chat">Chat</a></li>
+          <li><a href="#/location">Locate Us</a></li>
+          <li><a href="#/logout" ng-if="isAuthenticated()">Logout</a>
+          <li><a href="#/login" ng-if="!isAuthenticated()">Login</a></li>
+        </ul>
+      </div>
+  </nav>
+</div>
