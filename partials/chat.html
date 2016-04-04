@@ -1,5 +1,5 @@
 <header class="container">
-  <div class='toolbar left'>
+  <div class='toolbar left' style="margin-top: 12em">
   	<div class="container" style="position: fixed;">
 	  	<div class="row">
 	  		<div class="input-field col s6">
@@ -22,7 +22,7 @@
 </header>
 <div class="container right">
 	<div class="row">
-		<div id='messages' class="chat-messages col-s6 center-align"  ng-repeat= "text in messageData">
+		<div id='messages' class="chat-messages col-s6 center-align"  ng-repeat= "text in messageData" ng-class={text}>
 			<strong class="col-s1">{{text.name}}:</strong>
 			<div class="col-s1">{{text.text}}</div>
 			<a class="waves-effect waves-light btn red" type='text' ng-click="delete(text.id)">Delete</a>
